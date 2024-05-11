@@ -1,0 +1,12 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    padding: 1.75rem 3.75rem;
+}
