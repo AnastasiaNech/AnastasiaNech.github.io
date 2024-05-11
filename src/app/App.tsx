@@ -2,8 +2,11 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router';
 
-import { AuthScreen } from '../pages/authPage/authPage';
-import { RegScreen } from '../pages/regPage/regPage';
+import { AuthPage } from '../pages/authPage/authPage';
+import { RegPage } from '../pages/regPage/regPage';
+import { ProfilePage } from '../pages/profilePage/profilePage';
+import { CommonPage } from '../pages/commonPage/commonPage';
+
 import { Client } from '../client/Client';
 import { AuthProvider } from './providers/AuthProvider';
 import { RouterProvider } from './providers/RouterProvider';
@@ -18,8 +21,11 @@ function App() {
         <Client>
           <AuthProvider>
             <RouterProvider>
-              <Route path="" element={<AuthScreen />} />
-              <Route path="/regustration" element={<RegScreen />} />
+              <Route path="" element={<AuthPage />} />
+              <Route path="/regustration" element={<RegPage />} />
+              <Route path="/" element={<CommonPage />}>
+                <Route path="profile" element={<ProfilePage />} />
+              </Route>
             </RouterProvider>
           </AuthProvider>
         </Client>

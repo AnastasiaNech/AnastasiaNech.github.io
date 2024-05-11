@@ -3,7 +3,7 @@ import { Title } from 'src/shared/forms/title/title';
 import { SingInForm } from './singInForm/singInForm';
 import { Link } from 'react-router-dom';
 
-export const AuthScreen: FC = () => {
+export const AuthPage: FC = () => {
     return (
         <div className="block">
             <div>

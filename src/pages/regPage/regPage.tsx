@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { Title } from '../../shared/forms/title/title';
 import { SingUpForm } from './singUpForm/singUpForm';
 
-export const RegScreen: FC = () => {
+export const RegPage: FC = () => {
     return (
         <div className="block">
             <div>

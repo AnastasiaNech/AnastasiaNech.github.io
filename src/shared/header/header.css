@@ -2,11 +2,32 @@
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10;
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-between;
-    background-color: transparent;
-    padding: 1.75rem 3.75rem;
+    gap: 5rem;
+    padding: 1rem 3rem;
+}
+
+
+.light {
+    background-color: #FFDFDF;
+}
+
+
+.title {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #213363
+}
+
+.active {
+    cursor: pointer;
+}
+
+.buttom-header {
+    position: absolute;
+    bottom: 10;
+    right: 0;
 }
