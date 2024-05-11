@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 import cn from 'clsx';
-import s from './title.css';
+import './title.css';
 
 export type TitleProps = React.HTMLAttributes<HTMLDivElement> & {
-  className?: string;
+  classTitle?: string;
   children: React.ReactElement | React.ReactNode;
   required?: boolean;
 };
 
-export const Title: FC<TitleProps> = ({ className, required, ...props }) => <div {...props} className="root" />;
+export const Title: FC<TitleProps> = ({ classTitle, required, ...props }) => <div {...props} className={cn('root', classTitle)} />;
+
+

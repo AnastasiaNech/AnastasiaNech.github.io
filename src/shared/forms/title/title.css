@@ -1,12 +1,18 @@
 .root {
   font-weight: 600;
   line-height: 1.5;
+  color: #213363;
 }
 
 .required:after {
-    display: inline-block;
-    padding-left: 4px;
-    content: '*';
-    font-size: 12px;
+  display: inline-block;
+  padding-left: 4px;
+  content: '*';
+  font-size: 12px;
 }
-  
+
+.title {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1.5;
+}

@@ -1,16 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Provider } from 'react-redux';
+import { Route } from 'react-router';
+
+import { AuthScreen } from '../pages/authPage/authPage';
+import { RegScreen } from '../pages/regPage/regPage';
+import { Client } from '../client/Client';
+import { AuthProvider } from './providers/AuthProvider';
+import { RouterProvider } from './providers/RouterProvider';
+import { store } from '../../src/store/configureStore';
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Текст писать тут
-        </p>
-      </header>
+    <div className='app'>
+      <Provider store={store}>
+        <Client>
+          <AuthProvider>
+            <RouterProvider>
+              <Route path="" element={<AuthScreen />} />
+              <Route path="/regustration" element={<RegScreen />} />
+            </RouterProvider>
+          </AuthProvider>
+        </Client>
+      </Provider>
     </div>
   );
 }
