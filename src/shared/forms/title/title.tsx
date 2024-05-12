@@ -8,6 +8,6 @@ export type TitleProps = React.HTMLAttributes<HTMLDivElement> & {
   required?: boolean;
 };
 
-export const Title: FC<TitleProps> = ({ classTitle, required, ...props }) => <div {...props} className={cn('root', classTitle)} />;
-
-
+export const Title: FC<TitleProps> = ({ classTitle, required, ...props }) => (
+  <div {...props} className={cn('root', classTitle)} />
+);

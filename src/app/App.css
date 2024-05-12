@@ -7,14 +7,6 @@
     overflow-y: auto;
 }
 
-.dark {
-    background-color: rgb(164, 174, 184);
-}
-
-.light {
-    background-color: aliceblue;
-}
-
 .block {
     display: flex;
     align-items: center;

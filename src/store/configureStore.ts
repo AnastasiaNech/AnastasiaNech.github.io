@@ -6,12 +6,12 @@ import { profileSlice } from '../entities/profileSlice';
 const sagaMiddleware = createSagaMiddleware();
 
 export const rootReducer = combineReducers({
-    [profileSlice.name]: profileSlice.reducer,
+  [profileSlice.name]: profileSlice.reducer,
 });
 
 export const store = configureStore({
-    reducer: rootReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
 });
 
 sagaMiddleware.run(profileSaga);

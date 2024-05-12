@@ -7,25 +7,25 @@ import { useAuth } from '../../app/lib/useAuth';
 import { Header } from '../../shared/header/Header';
 
 export const CommonPage: FC = () => {
-    const dispatch = useDispatch();
-    const { setIsAuth } = useAuth();
-    const { authToken } = useSelector(profileSelector);
+  const dispatch = useDispatch();
+  const { setIsAuth } = useAuth();
+  const { authToken } = useSelector(profileSelector);
 
-    useEffect(() => {
-        dispatch(profileActions.getToken());
-        dispatch(profileActions.getProfileInfo());
-        dispatch(profileActions.getCostList());
-        setIsAuth(Boolean(authToken));
-    }, [dispatch]);
+  useEffect(() => {
+    dispatch(profileActions.getToken());
+    dispatch(profileActions.getProfileInfo());
+    dispatch(profileActions.getCostList());
+    setIsAuth(Boolean(authToken));
+  }, [dispatch]);
 
-    return (
-        <div>
-            <nav>
-                <Header />
-            </nav>
-            <main>
-                <Outlet />
-            </main>
-        </div>
-    );
+  return (
+    <div>
+      <nav>
+        <Header />
+      </nav>
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
 };

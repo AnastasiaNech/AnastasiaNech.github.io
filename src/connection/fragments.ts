@@ -1,14 +1,13 @@
-
 import { gql } from '@apollo/client';
 
 export const SING_IN = gql`
-mutation ($password: String!, $email: String!) {
-  profile {
-    signin(password: $password, email: $email) {
-      token
+  mutation ($password: String!, $email: String!) {
+    profile {
+      signin(password: $password, email: $email) {
+        token
+      }
     }
   }
-}
 `;
 
 export const SING_UP = gql`
@@ -43,5 +42,3 @@ export const EDIT_PROFILE = gql`
     }
   }
 `;
-
-

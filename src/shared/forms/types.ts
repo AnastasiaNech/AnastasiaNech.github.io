@@ -1,5 +1,5 @@
-import { InputRef } from 'antd';
-import { FormikContextType } from 'formik';
+import { type InputRef } from 'antd';
+import { type FormikContextType } from 'formik';
 import { MutableRefObject } from 'react';
 
 export interface FormProps<Values = unknown> {

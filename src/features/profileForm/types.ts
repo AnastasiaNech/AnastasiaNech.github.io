@@ -1,9 +1,8 @@
-import { FormProps } from "../../shared/forms/types";
-
+import { FormProps } from '../../shared/forms/types';
 
 export type ProfileFormValues = {
-    name: string;
-    email: string;
+  name: string;
+  email: string;
 };
 
 export type ProfileFormErrors = Record<keyof ProfileFormValues, string>;

@@ -1,8 +1,8 @@
 import { FormProps } from '../../shared/forms/types';
 
 export type AuthFormValues = {
-    email: string;
-    password: string;
+  email: string;
+  password: string;
 };
 
 export type AuthFormErrors = Record<keyof AuthFormValues, string>;
