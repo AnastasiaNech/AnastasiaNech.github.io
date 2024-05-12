@@ -29,9 +29,7 @@ export const Header: FC = () => {
         Операции
       </div>
       <div className="buttom-header">
-        <Button type="primary" onClick={onClose}>
-          {'Выйти'}
-        </Button>
+        <div className='exit' onClick={onClose}></div>
       </div>
     </div>
   );

@@ -31,3 +31,17 @@
     bottom: 10;
     right: 0;
 }
+
+.exit {
+    display: flex;
+    padding: .5em;
+    margin-top: 0.2rem;
+    margin-left: 1rem;
+    width: 2rem;
+    text-decoration: none;
+    font-size: 2em;
+    box-sizing: border-box;
+    background-color: #213363;
+    cursor: pointer;
+    clip-path: polygon(50% 24.25%, 50% 3.74%, 100% 49.25%, 50% 94.76%, 50% 74.25%, 7.26% 74.25%, 7.26% 24.78%);
+}

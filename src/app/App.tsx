@@ -13,6 +13,7 @@ import { RouterProvider } from './providers/RouterProvider';
 import { store } from '../../src/store/configureStore';
 
 import './App.css';
+import OperationPage from 'src/pages/operationPage/operationPage';
 
 function App() {
   return (
@@ -22,9 +23,10 @@ function App() {
           <AuthProvider>
             <RouterProvider>
               <Route path="" element={<AuthPage />} />
-              <Route path="/regustration" element={<RegPage />} />
+              <Route path="regustration" element={<RegPage />} />
               <Route path="/" element={<CommonPage />}>
                 <Route path="profile" element={<ProfilePage />} />
+                <Route path="operations" element={<OperationPage />} />
               </Route>
             </RouterProvider>
           </AuthProvider>

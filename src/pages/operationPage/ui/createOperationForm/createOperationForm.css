@@ -1,0 +1,12 @@
+.modalCreate {
+    margin: 1rem;
+}
+
+select {
+    height: 2rem;
+    width: 15rem;
+    margin-bottom: .5rem;
+    border-color: #d9d9d9;
+    border-width: 1px;
+    border-radius: 6px;
+}
