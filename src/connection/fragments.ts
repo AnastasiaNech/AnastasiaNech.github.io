@@ -123,6 +123,34 @@ export const GET_CATEGORIES = gql`
   }
 `;
 
+export const ADD_CATEGORIES = gql`
+  mutation ($input: CategoryAddInput!) {
+    categories {
+      add(input: $input) {
+        id
+        name
+        photo
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+
+export const UPDATE_CATEGORIES = gql`
+  mutation ($input: CategoryUpdateInput!, $id: ID!) {
+    categories {
+      put(input: $input, id: $id) {
+        id
+        name
+        photo
+        createdAt
+        updatedAt
+      }
+    }
+  }
+`;
+
 export const ADD_OPERATIONS = gql`
   mutation ($input: OperationAddInput!) {
     operations {

@@ -14,6 +14,7 @@ import { store } from '../../src/store/configureStore';
 
 import './App.css';
 import OperationPage from 'src/pages/operationPage/operationPage';
+import CategoryPage from 'src/pages/categoryPage/categoryPage';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/" element={<CommonPage />}>
                 <Route path="profile" element={<ProfilePage />} />
                 <Route path="operations" element={<OperationPage />} />
+                <Route path="categories" element={<CategoryPage />} />
               </Route>
             </RouterProvider>
           </AuthProvider>

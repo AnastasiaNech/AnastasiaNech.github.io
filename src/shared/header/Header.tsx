@@ -24,7 +24,7 @@ export const Header: FC = () => {
       <div className="title active" onClick={() => navigate('/profile')}>
         Профиль
       </div>
-      <div className="title active">Категории</div>
+      <div className="title active" onClick={() => navigate('/categories')}>Категории</div>
       <div className="title active" onClick={() => navigate('/operations')}>
         Операции
       </div>
