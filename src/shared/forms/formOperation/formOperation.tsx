@@ -75,9 +75,18 @@ export const OperationForm = memo<OperationFormProps>(({ formManager, formElemen
             />
             {!isUpdate && (
                 <label className="labelSelect">
-                    <div className='root'>Категория</div>
+                    <div className='root'>Тип</div>
                     <select onChange={(e: any) => changeSelect(e.target.value)}>
                         {categoryList && categoryList.length > 0 ? getOptions() : <option />}
+                    </select>
+                </label>
+            )}
+            {!isUpdate && (
+                <label className="labelSelect">
+                    <div className='root'>Категория</div>
+                    <select onChange={(e: any) => changeSelect(e.target.value)}>
+                        <option>Cost</option >
+                        <option>Profile</option >
                     </select>
                 </label>
             )}
