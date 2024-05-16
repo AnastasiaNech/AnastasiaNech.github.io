@@ -42,3 +42,9 @@ a {
     color: #213363;
     font-size: small;
 }
+
+.page {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+}

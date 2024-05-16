@@ -34,7 +34,7 @@ export const OperationPage: FC = () => {
     }
 
     return (
-        <div>
+        <div className='page'>
             <OperationTable headers={headers} rows={data} />
             <Button type="primary" onClick={createOperation}>
                 {'Создать операцию'}

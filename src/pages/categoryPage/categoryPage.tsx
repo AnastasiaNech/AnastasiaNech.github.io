@@ -34,7 +34,7 @@ export const CategoryPage: FC = () => {
     }
 
     return (
-        <div>
+        <div className='page'>
             <CategoryTable headers={headers} rows={data} />
             <Button type="primary" onClick={createCategory}>
                 {'Создать категорию'}
