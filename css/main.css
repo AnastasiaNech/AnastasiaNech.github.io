@@ -30,6 +30,12 @@ code {
   font-size: 25px;
   line-height: 1.5;
 }
+
+.titleModal {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+}
 .header {
     position: absolute;
     top: 0;
@@ -38,7 +44,6 @@ code {
     width: 100%;
     align-items: center;
     gap: 5rem;
-    padding: 1rem 3rem;
 }
 
 
@@ -62,6 +67,20 @@ code {
     position: absolute;
     bottom: 10;
     right: 0;
+}
+
+.exit {
+    display: flex;
+    padding: .5em;
+    margin-top: 0.2rem;
+    margin-left: 1rem;
+    width: 2rem;
+    text-decoration: none;
+    font-size: 2em;
+    box-sizing: border-box;
+    background-color: #213363;
+    cursor: pointer;
+    clip-path: polygon(50% 24.25%, 50% 3.74%, 100% 49.25%, 50% 94.76%, 50% 74.25%, 7.26% 74.25%, 7.26% 24.78%);
 }
 .app {
     display: flex;
@@ -106,6 +125,106 @@ form {
 a {
     color: #213363;
     font-size: small;
+}
+
+.page {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+}
+.modal {
+    height: auto;
+    min-height: 20vh;
+    width: 20vw;
+    background-color: white;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    border-radius: 1rem;
+}
+
+.overlay {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0.2;
+}
+
+.close {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: .5em;
+    text-decoration: none;
+    font-size: 1em;
+    box-sizing: border-box;
+    background-color: #213363;
+    cursor: pointer;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+}
+.edit {
+    display: flex;
+    padding: .5em;
+    margin-top: 0.2rem;
+    margin-left: 1rem;
+    width: 2rem;
+    text-decoration: none;
+    font-size: 2em;
+    box-sizing: border-box;
+    background-color: black;
+    cursor: pointer;
+    clip-path: polygon(29.55% 62.02%, 66% 19.35%, 73.76% 25.99%, 37.16% 68.85%, 24.94% 74.81%);
+}
+
+table {
+    table-layout: fixed;
+    width: 50%;
+    border-collapse: collapse;
+    border: 3px solid purple;
+    margin-bottom: 2rem;
+    margin-left: .5rem;
+}
+
+th {
+    padding: 20px;
+    text-align: start;
+}
+
+td {
+    padding: 20px;
+}
+form {
+    margin: 0.5rem;
+}
+
+.title {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.5;
+}
+.modalUpdate {
+    margin: 1rem;
+}
+.modalCreate {
+    margin: 1rem;
+}
+
+select {
+    height: 2rem;
+    width: 15rem;
+    margin-bottom: .5rem;
+    border-color: #d9d9d9;
+    border-width: 1px;
+    border-radius: 6px;
+}
+
+.modalUpdate {
+    margin: 1rem;
 }
 
 /*# sourceMappingURL=main.css.map*/
