@@ -10,38 +10,37 @@ import { OperationTable } from './ui/operationTable/operationTable';
 import { CreateOperationForm } from './ui/createOperationForm/createOperationForm';
 import { GET_OPERATIONS } from 'src/connection/fragments';
 
-
 export const OperationPage: FC = () => {
-    const headers = ['Название', 'Стоимость', 'Категория', 'Тип', 'Действия'];
-    const [getMany, { data, error }] = useLazyQuery(GET_OPERATIONS);
-    const [modalActive, setModalActive] = useState(false);
-    const dispatch = useDispatch();
-    const [child, setChild] = useState<JSX.Element>();
+  const headers = ['Название', 'Стоимость', 'Категория', 'Тип', 'Действия'];
+  const [getMany, { data, error }] = useLazyQuery(GET_OPERATIONS);
+  const [modalActive, setModalActive] = useState(false);
+  const dispatch = useDispatch();
+  const [child, setChild] = useState<JSX.Element>();
 
-    useEffect(() => {
-        getMany();
+  useEffect(() => {
+    getMany();
 
-        if (data) {
-            const a = JSON.stringify(data, null, 2);
-            const b = JSON.parse(a);
-            dispatch(profileActions.setCostList(b.operations.getMany.data));
-        }
-    }, [data]);
-
-    function createOperation(): void {
-        setChild(<CreateOperationForm onClose={setModalActive} />);
-        setModalActive(true);
+    if (data) {
+      const a = JSON.stringify(data, null, 2);
+      const b = JSON.parse(a);
+      dispatch(profileActions.setCostList(b.operations.getMany.data));
     }
+  }, [data]);
 
-    return (
-        <div className='page'>
-            <OperationTable headers={headers} rows={data} />
-            <Button type="primary" onClick={createOperation}>
-                {'Создать операцию'}
-            </Button>
-            {modalActive ? createPortal(<Modal setActive={setModalActive}>{child}</Modal>, document.body) : ''}
-        </div>
-    );
+  function createOperation(): void {
+    setChild(<CreateOperationForm onClose={setModalActive} />);
+    setModalActive(true);
+  }
+
+  return (
+    <div className="page">
+      <OperationTable headers={headers} rows={data} />
+      <Button type="primary" onClick={createOperation}>
+        {'Создать операцию'}
+      </Button>
+      {modalActive ? createPortal(<Modal setActive={setModalActive}>{child}</Modal>, document.body) : ''}
+    </div>
+  );
 };
 
 export default OperationPage;

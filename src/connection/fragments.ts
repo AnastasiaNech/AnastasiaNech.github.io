@@ -97,7 +97,6 @@ export const GET_OPERATIONS = gql`
   }
 `;
 
-
 export const GET_CATEGORIES = gql`
   query {
     categories {
@@ -194,8 +193,6 @@ export const ADD_OPERATIONS = gql`
   }
 `;
 
-
-
 export const UPDATE_OPERATIONS = gql`
   mutation ($input: OperationUpdateInput!, $id: ID!) {
     operations {
@@ -235,5 +232,4 @@ export const UPDATE_OPERATIONS = gql`
       }
     }
   }
-  `;
-
+`;

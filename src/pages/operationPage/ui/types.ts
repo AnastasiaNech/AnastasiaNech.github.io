@@ -1,10 +1,10 @@
-import { FormProps } from "src/shared/forms/types";
+import { FormProps } from 'src/shared/forms/types';
 
 export type OperationFormValues = {
-    name: string;
-    cost: number;
-    category?: string;
-    description: string;
+  name: string;
+  cost: number;
+  category?: string;
+  description: string;
 };
 
 export type OperationFormErrors = Record<keyof OperationFormValues, string>;

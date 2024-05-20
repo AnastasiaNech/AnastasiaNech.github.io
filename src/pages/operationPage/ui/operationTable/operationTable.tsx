@@ -8,48 +8,48 @@ import { Modal } from 'src/shared/modal/modal';
 import { UpdateOperationForm } from '../updateOperationForm/updateOperationForm';
 
 interface OperationTableProps {
-    headers: Array<string>;
-    rows?: Array<Operation>;
+  headers: Array<string>;
+  rows?: Array<Operation>;
 }
 
 export const OperationTable: FC<OperationTableProps> = ({ headers, rows }) => {
-    const { costList } = useSelector(profileSelector);
-    const [modalUpdate, setModalUpdate] = useState(false);
-    const [childUpdate, setChildUpdate] = useState<JSX.Element>();
+  const { costList } = useSelector(profileSelector);
+  const [modalUpdate, setModalUpdate] = useState(false);
+  const [childUpdate, setChildUpdate] = useState<JSX.Element>();
 
-    function updateOperation(id: string): void {
-        setChildUpdate(<UpdateOperationForm id={id} onClose={setModalUpdate} />);
-        setModalUpdate(true);
-    }
+  function updateOperation(id: string): void {
+    setChildUpdate(<UpdateOperationForm id={id} onClose={setModalUpdate} />);
+    setModalUpdate(true);
+  }
 
-    return (
-        <table>
-            <thead>
-                <tr>
-                    {' '}
-                    {Array.isArray(headers)
-                        ? headers.map((header) => {
-                            return <th key={header}>{header}</th>;
-                        })
-                        : null}
+  return (
+    <table>
+      <thead>
+        <tr>
+          {' '}
+          {Array.isArray(headers)
+            ? headers.map((header) => {
+                return <th key={header}>{header}</th>;
+              })
+            : null}
+        </tr>
+      </thead>
+      <tbody>
+        {costList.length > 0
+          ? costList.map((row) => {
+              return (
+                <tr key={row.id}>
+                  <td>{row.name}</td>
+                  <td>{row.amount}</td>
+                  <td>{row.type}</td>
+                  <td>{row.category.name}</td>
+                  <div className="edit" onClick={() => updateOperation(row.id)}></div>
                 </tr>
-            </thead>
-            <tbody>
-                {costList.length > 0
-                    ? costList.map((row) => {
-                        return (
-                            <tr key={row.id}>
-                                <td>{row.name}</td>
-                                <td>{row.amount}</td>
-                                <td>{row.type}</td>
-                                <td>{row.category.name}</td>
-                                <div className='edit' onClick={() => updateOperation(row.id)}></div>
-                            </tr>
-                        );
-                    })
-                    : null}
-            </tbody>
-            {modalUpdate ? createPortal(<Modal setActive={setModalUpdate}>{childUpdate}</Modal>, document.body) : ''}
-        </table>
-    );
+              );
+            })
+          : null}
+      </tbody>
+      {modalUpdate ? createPortal(<Modal setActive={setModalUpdate}>{childUpdate}</Modal>, document.body) : ''}
+    </table>
+  );
 };

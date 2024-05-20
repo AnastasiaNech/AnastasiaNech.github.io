@@ -10,38 +10,37 @@ import { CreateOperationForm } from '../operationPage/ui/createOperationForm/cre
 import { CategoryTable } from './ui/categoryTable/categoryTable';
 import { CreateCategoryForm } from './ui/createCategoryForm/createCategoryForm';
 
-
 export const CategoryPage: FC = () => {
-    const headers = ['Название', 'Дата создания', 'Действия'];
-    const [getMany, { data, error }] = useLazyQuery(GET_CATEGORIES);
-    const [modalActive, setModalActive] = useState(false);
-    const dispatch = useDispatch();
-    const [child, setChild] = useState<JSX.Element>();
+  const headers = ['Название', 'Дата создания', 'Действия'];
+  const [getMany, { data, error }] = useLazyQuery(GET_CATEGORIES);
+  const [modalActive, setModalActive] = useState(false);
+  const dispatch = useDispatch();
+  const [child, setChild] = useState<JSX.Element>();
 
-    useEffect(() => {
-        getMany();
+  useEffect(() => {
+    getMany();
 
-        if (data) {
-            const a = JSON.stringify(data, null, 2);
-            const b = JSON.parse(a);
-            dispatch(profileActions.setCategoryList(b.categories.getMany.data));
-        }
-    }, [data]);
-
-    function createCategory(): void {
-        setChild(<CreateCategoryForm onClose={setModalActive} />);
-        setModalActive(true);
+    if (data) {
+      const a = JSON.stringify(data, null, 2);
+      const b = JSON.parse(a);
+      dispatch(profileActions.setCategoryList(b.categories.getMany.data));
     }
+  }, [data]);
 
-    return (
-        <div className='page'>
-            <CategoryTable headers={headers} rows={data} />
-            <Button type="primary" onClick={createCategory}>
-                {'Создать категорию'}
-            </Button>
-            {modalActive ? createPortal(<Modal setActive={setModalActive}>{child}</Modal>, document.body) : ''}
-        </div>
-    );
+  function createCategory(): void {
+    setChild(<CreateCategoryForm onClose={setModalActive} />);
+    setModalActive(true);
+  }
+
+  return (
+    <div className="page">
+      <CategoryTable headers={headers} rows={data} />
+      <Button type="primary" onClick={createCategory}>
+        {'Создать категорию'}
+      </Button>
+      {modalActive ? createPortal(<Modal setActive={setModalActive}>{child}</Modal>, document.body) : ''}
+    </div>
+  );
 };
 
 export default CategoryPage;

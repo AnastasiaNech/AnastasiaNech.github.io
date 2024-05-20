@@ -1,7 +1,7 @@
-import { FormProps } from "src/shared/forms/types";
+import { FormProps } from 'src/shared/forms/types';
 
 export type CategoryFormValues = {
-    name: string;
+  name: string;
 };
 
 export type CategoryFormErrors = Record<keyof CategoryFormValues, string>;

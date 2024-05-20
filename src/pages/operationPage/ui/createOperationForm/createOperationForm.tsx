@@ -13,72 +13,72 @@ import { OperationFormErrors, OperationFormValues } from '../types';
 import '../createOperationForm/createOperationForm.css';
 
 export type AddBodyVariables = {
-    input: OperationAddInput;
+  input: OperationAddInput;
 };
 
 interface CreateOperationProps {
-    onClose?: React.Dispatch<React.SetStateAction<boolean>>;
+  onClose?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const CreateOperationForm: FC<CreateOperationProps> = memo(({ onClose }) => {
-    const [add, { loading, error }] = useMutation<Pick<Mutation, 'operations'>, AddBodyVariables>(ADD_OPERATIONS);
-    const { category } = useOperation();
-    const { initialValues, onSubmit, validate } = useMemo<
-        Pick<FormikConfig<OperationFormValues>, 'onSubmit' | 'validate' | 'initialValues'>
-    >(() => {
-        return {
-            initialValues: {
-                name: '',
-                cost: 0,
-                category: '',
-                description: '',
+  const [add, { loading, error }] = useMutation<Pick<Mutation, 'operations'>, AddBodyVariables>(ADD_OPERATIONS);
+  const { category } = useOperation();
+  const { initialValues, onSubmit, validate } = useMemo<
+    Pick<FormikConfig<OperationFormValues>, 'onSubmit' | 'validate' | 'initialValues'>
+  >(() => {
+    return {
+      initialValues: {
+        name: '',
+        cost: 0,
+        category: '',
+        description: '',
+      },
+      onSubmit: (values) => {
+        add({
+          variables: {
+            input: {
+              amount: values.cost,
+              desc: values.description,
+              categoryId: category.id,
+              date: new Date(),
+              type: OperationType.Cost,
+              name: values.name,
             },
-            onSubmit: (values) => {
-                add({
-                    variables: {
-                        input: {
-                            amount: values.cost,
-                            desc: values.description,
-                            categoryId: category.id,
-                            date: new Date(),
-                            type: OperationType.Cost,
-                            name: values.name,
-                        },
-                    },
-                    refetchQueries: [{ query: GET_OPERATIONS }],
-                })
-                    .then((res) => onClose(false))
-                    .catch((err) => console.error(err));
-            },
-            validate: (values) => {
-                const errors = {} as OperationFormErrors;
-                if (isNotDefinedString(values.name)) {
-                    errors.name = 'Обязательно для заполнения';
-                }
-                return errors;
-            },
-        };
-    }, [category]);
+          },
+          refetchQueries: [{ query: GET_OPERATIONS }],
+        })
+          .then((res) => onClose(false))
+          .catch((err) => console.error(err));
+      },
+      validate: (values) => {
+        const errors = {} as OperationFormErrors;
+        if (isNotDefinedString(values.name)) {
+          errors.name = 'Обязательно для заполнения';
+        }
+        return errors;
+      },
+    };
+  }, [category]);
 
-    const formManager = useFormik<OperationFormValues>({
-        initialValues,
-        onSubmit,
-        validate,
-    });
+  const formManager = useFormik<OperationFormValues>({
+    initialValues,
+    onSubmit,
+    validate,
+  });
 
-    const { submitForm } = formManager;
+  const { submitForm } = formManager;
 
-    return (
-        <div className='modalCreate'>
-            <Title classTitle="titleModal">{'Создать операцию'}</Title>
-            <OperationForm formManager={formManager} />
-            <div>
-                <Button type="primary" onClick={submitForm}>
-                    {'Сохранить'}
-                </Button>
-            </div>
-        </div >
-    );
+  return (
+    <div className="modalCreate">
+      <Title classTitle="titleModal">{'Создать операцию'}</Title>
+      <OperationForm formManager={formManager} />
+      <div>
+        <Button type="primary" onClick={submitForm}>
+          {'Сохранить'}
+        </Button>
+      </div>
+    </div>
+  );
 });
 
 CreateOperationForm.displayName = 'CreateOperationForm';
