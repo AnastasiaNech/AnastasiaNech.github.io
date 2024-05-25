@@ -31,7 +31,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       # Запускаем линтер
-      - name: Run tests and linter
+      - name: Run linter
         run: npm run lint
 
       # Собираем приложение
