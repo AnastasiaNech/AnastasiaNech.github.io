@@ -16,7 +16,7 @@
 
 
 Проект включает в себя деплой на github pages и будет доступен по адресу
-https://anastasianech.github.io/final-project/
+https://anastasianech.github.io/
 
 Настройку деплоя смотрите тут .github/workflows/main.yml
 
